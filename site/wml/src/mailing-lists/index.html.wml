@@ -1,0 +1,10 @@
+#include '../template.wml'
+
+<subject "Mailing Lists" />
+
+<div class="textblock">
+<p>
+Nothing here.
+</p>
+</div>
+

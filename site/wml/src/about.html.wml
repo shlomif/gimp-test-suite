@@ -1,0 +1,9 @@
+#include '../template.wml'
+
+<subject "About the Gimp Automated Testing Framework" />
+
+<div class="textblock">
+<p>
+Fill In.
+</p>
+</div>

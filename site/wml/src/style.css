@@ -1,0 +1,74 @@
+/* body { font-family : sans-serif } */
+a:hover, img.highlight:hover { background-color : lightgreen }
+
+body { background-color : lightblue }
+.main {
+    float : left;
+    width : 70%;
+    padding-bottom : 1em;
+    padding-top : 0em;
+    margin-left : 1em;
+    border-width : thin;
+    border-color : black;
+    border-style : solid;
+    background-color : white
+    
+}
+.navbar {
+    float : left;
+    background-color : palegreen;
+    width : 20%;
+    border-color : black;
+    border-width : thick;
+    border-style : double;
+    padding-left : 0.5em;
+}
+
+/*
+    This is so IE/Mac and Mozilla 1.2/Mac would be happy.
+*/
+div.footer {
+    clear : both;
+    margin-right : 30px;
+    padding-top: 0.5em;
+}
+
+.bottom {
+}
+
+.textblock {
+    padding-left : 1em;
+    padding-right : 1em;
+}
+
+.main h1 {
+    background-color : #969add;
+    padding-left : 0.5em;
+    padding-top : 0em;
+    margin-top : 0em;
+    margin-left : 0em;
+}
+
+.main h2 {
+    background-color : #ede550;
+    padding-left : 0.5em;
+}
+
+.navbar h2 { color: black ; border : none ; font-size : large ; margin-left : 0.5em ; background-color : transparent }
+p.desc { margin-left : 3em }
+ul.navbarmain { padding-left : 1em ; margin-left : 1em ; font-size : 90%}
+ul.navbarnested { padding-left : 0em ; margin-left : 2em }
+h3.newsitem { text-indent: 3em }
+p.newsitem { margin-left : 6em }
+div.indent { margin-left : 3em }
+p.indent { margin-left : 3em  }
+div.rightalign { text-align : right }
+/*
+    Make sure the links inside the navigation bar are highlited
+    with a different colour. That's CSS 2.
+    http://www.zvon.org/xxl/CSS2Tutorial/Examples/example3.html
+*/
+.navbar a:hover { background-color : orange }
+td.main { padding-left : 1em ; margin-left : 1em }
+    
+tt { color : #8A2BE2 /* The BlueViolet Color */ }

@@ -1,0 +1,26 @@
+#include '../template.wml'
+
+<subject "The Gimp Automated Testing Framework" />
+
+<div class="textblock">
+<p>
+Welcome to the homepage of the Gimp Automated Testing Framework. The purpose
+of this framework is to supply regression tests for 
+<a href="http://www.gimp.org/">GIMP</a>.
+</p>
+<p>
+Here you can find 
+<a href="http://gimp-test.berlios.de/libseedserve/">libseedserve releases</a>
+which are required by the testing framework. The framework itself is at the 
+moment only available inside the 
+<a href="http://subversion.tigris.org/">Subversion</a> repository. To check it 
+out, use the command:
+</p>
+<pre>
+svn co svn://svn.berlios.de/gimp-test/trunk
+</pre>
+<p>
+Have fun!
+</p>
+</div>
+
