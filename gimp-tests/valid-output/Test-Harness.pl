@@ -26,21 +26,28 @@ sub find_grand_seedserve_lib
     die "Could not find libgrand_seedserve.so!";
 }
 
-sub should_skip
-{
-    my $fn = shift;
-    return (($fn =~ /~$/) || ($fn =~ /^\./) || ($fn =~ /^__SKIP-/));
-}
-
 my $exit_type = "newline";
 my $exit_string = "EXIT";
 my $skip_tests = 0;
+my $which_tests_re = "^.*\$";
+
+sub should_skip
+{
+    my $fn = shift;
+    return 
+        (($fn =~ /~$/) || 
+        ($fn =~ /^\./) || 
+        ($fn =~ /^__SKIP-/) || 
+        ($fn !~ /$which_tests_re/o));
+}
+
 # Process the command line arguments
 my $cmd_line_ok = 
     GetOptions(
         "exit=s" => \$exit_type,
         "exit-string=s" => \$exit_string,
         "skip-tests" => \$skip_tests,
+        "which-tests-re=s" => \$which_tests_re,
     );
 
 if (!$cmd_line_ok)
