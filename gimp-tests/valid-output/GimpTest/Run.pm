@@ -27,7 +27,7 @@ if (!defined($mode))
 {
     die "Mode not specified.";
 }
-if (!(($mode eq "init") || ($mode eq "check")))
+if (!(($mode eq "init") || ($mode eq "check") || ($mode eq "gen")))
 {
     die "Unknown mode \"$mode\".";
 }
@@ -90,7 +90,14 @@ elsif ($mode eq "check")
 }
 print "Success!\n";
 
-unlink($output_fn);
+if ($mode eq "gen")
+{
+    # Do nothing
+}
+else
+{
+    unlink($output_fn);
+}
 
 1;
 
