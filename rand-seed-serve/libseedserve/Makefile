@@ -1,24 +1,23 @@
 NAME = seedserve
-LIBNAME = lib$(NAME).so
+LIBNAME = lib$(NAME).la
 EXENAME = $(NAME)-run
 EXE_DEPS = $(NAME).o main-run.o
 OBJECTS = $(EXE_DEPS)
 
 CFLAGS = -Wall -Werror-implicit-function-declaration -Wstrict-prototypes -Wpointer-arith -g
 
-TARGETS = $(EXENAME)
+TARGETS = $(EXENAME) $(LIBNAME)
 
 all: $(TARGETS)
 
-$(NAME).c : $(NAME).h
-
-$(OBJECTS) :: %.o : %.c 
+$(OBJECTS) :: %.o : %.c $(NAME).h 
 	gcc -c $(CFLAGS) -o $@ $<
 
 $(EXENAME): $(EXE_DEPS)
 	gcc -o $@ $(EXE_DEPS)
 	
-# $(LIBNAME): $(NAME).o
+$(LIBNAME): $(NAME).o
+	libtool --mode=link gcc $(CFLAGS) -o $@ -rpath /usr/lib -version-info 0:0:0 $<
 	
 TEST_VERBOSE = 0
 
