@@ -34,11 +34,13 @@ sub should_skip
 
 my $exit_type = "newline";
 my $exit_string = "EXIT";
+my $skip_tests = 0;
 # Process the command line arguments
 my $cmd_line_ok = 
     GetOptions(
         "exit=s" => \$exit_type,
         "exit-string=s" => \$exit_string,
+        "skip-tests" => \$skip_tests,
     );
 
 if (!$cmd_line_ok)
@@ -85,25 +87,28 @@ while (! -e $gimp_perl_server_socket_path)
 usleep(5000);
 
 my (@failed, @passed);
-# Now run the tests
-foreach my $file (io("./gen-scripts/")->all_files())
+if (! $skip_tests)
 {
-    my $filename = $file->filename();
-    if (should_skip($filename))
+    # Now run the tests
+    foreach my $file (io("./gen-scripts/")->all_files())
     {
-        next;
-    }
-    my $test_name = $filename;
-    $test_name =~ s/\.pl$//;
-    print STDERR "Performing Test \"$filename\"\n";
-    my $ret = system("perl", "run-script.pl", "$file", "--mode=check");
-    if ($ret)
-    {
-        push @failed, $test_name;
-    }
-    else
-    {
-        push @passed, $test_name;
+        my $filename = $file->filename();
+        if (should_skip($filename))
+        {
+            next;
+        }
+        my $test_name = $filename;
+        $test_name =~ s/\.pl$//;
+        print STDERR "Performing Test \"$filename\"\n";
+        my $ret = system("perl", "run-script.pl", "$file", "--mode=check");
+        if ($ret)
+        {
+            push @failed, $test_name;
+        }
+        else
+        {
+            push @passed, $test_name;
+        }
     }
 }
 
@@ -125,11 +130,14 @@ elsif ($exit_type eq "string")
     }
 }
 
-io("failed-report.txt")->print(map { "$_\n" } 
-    ("The following tests failed:", "", @failed));
-print STDERR "Passed " . scalar(@passed) .
-    "; Failed " . scalar(@failed) . "\n";
-print STDERR "Report of failed tests written to failed-report.txt.\n";
+if (! $skip_tests)
+{
+    io("failed-report.txt")->print(map { "$_\n" } 
+        ("The following tests failed:", "", @failed));
+    print STDERR "Passed " . scalar(@passed) .
+        "; Failed " . scalar(@failed) . "\n";
+    print STDERR "Report of failed tests written to failed-report.txt.\n";
+}
 
 END
 {
