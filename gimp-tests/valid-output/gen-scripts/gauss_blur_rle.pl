@@ -17,12 +17,19 @@ sub get_drawable
     return (gimp_image_get_layers($img))[0];
 }
 
+# This function will be modified from script to script.
+sub gen_image
+{
+    my $input_fn = getcwd() . "/input-images/tiger_sitting.png";
+    my $img = gimp_file_load(1, $input_fn, $input_fn);
+
+    plug_in_gauss(1, $img, get_drawable($img), 5.0, 10.0, 1);
+
+    return { 'image_id' => $img };
+}
+
 my $output_fn = getcwd() . "/temp/output-images/gauss_blur_rle.bmp";
-
-my $input_fn = getcwd() . "/input-images/tiger_sitting.png";
-my $img = gimp_file_load(1, $input_fn, $input_fn);
-
-plug_in_gauss(1, $img, get_drawable($img), 5.0, 10.0, 1);
+my $img = gen_image()->{'image_id'};
 gimp_image_flatten($img);
 gimp_file_save(1, $img, get_drawable($img), $output_fn, $output_fn);
 gimp_image_delete($img);
