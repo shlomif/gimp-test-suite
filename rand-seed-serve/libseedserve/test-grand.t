@@ -23,7 +23,7 @@ my $port = $ret->{'port'};
 
 $ENV{'SEEDSERVE_PORT'} = $port;
 
-$ENV{'LD_PRELOAD'} = getcwd()."/libgrand_seedserve.so";
+$ENV{'LD_PRELOAD'} = getcwd()."/.libs/libgrand_seedserve.so";
 
 # The eval { } is to trap exceptions, so we can safely stop the server at 
 # cleanup.

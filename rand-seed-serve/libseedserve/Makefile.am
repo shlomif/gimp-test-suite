@@ -20,3 +20,8 @@ grand-test-output.good.txt: grand-test-good
 INCLUDES = $(GLIB_CFLAGS)
 LDADD = $(GLIB_LIBS)
 
+EXTRA_DIST = test-grand.t test-seedserve.t temp/meaningless.txt
+
+test: seedserve-run libgrand_seedserve.la libseedserve.la grand-test-output.good.txt grand-test-experiment
+	PERL_DL_NONLAZY=1 perl "-MExtUtils::Command::MM" "-e" "test_harness($(TEST_VERBOSE))" test-seedserve.t test-grand.t
+
