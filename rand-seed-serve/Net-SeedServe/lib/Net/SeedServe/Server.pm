@@ -80,6 +80,29 @@ sub start
     }
 }
 
+sub connect
+{
+    my $self = shift;
+
+    my $status_file = $self->{'status_file'};
+
+    my $text = io()->file($status_file)->getline();
+
+    if ($text !~ /^Status:Success\tPort:(\d+)\tPID:(\d+)$/)
+    {
+        die "Invalid status file.";
+    }
+
+    my $port = $1;
+    $self->{'server_pid'} = $2;
+    # TODO ? 
+    # Add sanity checks.
+    
+    $self->{'port'} = $port;
+
+    return { 'port' => $port, };
+}
+
 sub stop
 {
     my $self = shift;
