@@ -9,9 +9,10 @@ require GimpTest::Run;
 # This function will be modified from script to script.
 sub gen_image
 {
-    my $img = load_input_file("tiger_sitting.png");
+    init_seeds([2466]);
+    my $img = load_input_file("text-becker-the-gimp.png");
 
-    plug_in_gauss(1, $img, get_layer($img), 5.0, 10.0, 1);
+    script_fu_frosty_logo_alpha(RUN_NONINTERACTIVE(), $img, get_layer($img), 100, [255,255,255]);
 
     return { 'image_id' => $img };
 }

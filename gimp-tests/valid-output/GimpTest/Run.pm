@@ -1,12 +1,20 @@
 use strict;
 use warnings;
 
+# This is to disable the Gimp module signal handler.
+# Because IO::All (used in Net::SeedServe::Server install its own signal
+# handler, which calls the old signal handler (Gimp's) which in turn
+# calls warn() we get an endless loop.
+BEGIN {
+$Gimp::no_SIG = 1;
+}
 use Gimp ":auto";
 
 use Cwd;
 use Digest::MD5;
 use YAML (qw(DumpFile LoadFile));
 use Getopt::Long;
+use Net::SeedServe::Server;
 
 my $mode = undef;
 my $test_name = undef;
@@ -38,7 +46,21 @@ if (!defined($test_name))
 
 Gimp::init();
 
-sub get_drawable
+my $seed_serve =
+    Net::SeedServe::Server->new(
+        'status_file' => "temp/server-status.txt",
+    );
+
+$seed_serve->connect();
+
+sub init_seeds
+{
+    my $seeds = shift;
+    $seed_serve->clear();
+    $seed_serve->enqueue($seeds);
+}
+
+sub get_layer
 {
     my $img = shift;
     return (gimp_image_get_layers($img))[0];
@@ -54,7 +76,7 @@ sub load_input_file
 my $output_fn = getcwd() . "/temp/output-images/$test_name.bmp";
 my $img = main::gen_image()->{'image_id'};
 gimp_image_flatten($img);
-gimp_file_save(1, $img, get_drawable($img), $output_fn, $output_fn);
+gimp_file_save(1, $img, get_layer($img), $output_fn, $output_fn);
 gimp_image_delete($img);
 
 my $signature = +{};

@@ -15,7 +15,7 @@ sub gen_image
 
     gimp_ellipse_select($img, 80, 20, 50, 40, CHANNEL_OP_ADD(), 0, 0, 0);
 
-    gimp_selection_float(get_drawable($img), 5, 13);
+    gimp_selection_float(get_layer($img), 5, 13);
 
     return { 'image_id' => $img };
 }
