@@ -97,5 +97,7 @@ print STDERR "Report of failed tests written to failed-report.txt.\n";
 END
 {
     # Cleanup.
+    system("perl", "quit-gimp.pl");
     $seed_server->stop();
 }
+
