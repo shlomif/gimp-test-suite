@@ -62,6 +62,7 @@ foreach my $file (io("./gen-scripts/")->all_files())
 {
     my $filename = $file->filename();
     next if ($filename =~ /~$/);
+    next if ($filename =~ /^\./);
     my $test_name = $filename;
     $test_name =~ s/\.pl$//;
     print STDERR "Performing Test \"$test_name\"\n";
