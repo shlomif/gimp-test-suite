@@ -73,8 +73,8 @@ foreach my $file (io("./gen-scripts/")->all_files())
     }
     my $test_name = $filename;
     $test_name =~ s/\.pl$//;
-    print STDERR "Performing Test \"$test_name\"\n";
-    my $ret = system("perl", "$file", "--mode=check", "--name=$test_name");
+    print STDERR "Performing Test \"$filename\"\n";
+    my $ret = system("perl", "run-script.pl", "$file", "--mode=check");
     if ($ret)
     {
         push @failed, $test_name;
@@ -88,7 +88,8 @@ foreach my $file (io("./gen-scripts/")->all_files())
 print STDERR "Type <Return> to exit.\n";
 my $line = <STDIN>;
 
-io("failed-report.txt")->print(map { "$_\n" } ("Failed", "", @failed));
+io("failed-report.txt")->print(map { "$_\n" } 
+    ("The following tests failed:", "", @failed));
 print STDERR "Passed " . scalar(@passed) .
     "; Failed " . scalar(@failed) . "\n";
 print STDERR "Report of failed tests written to failed-report.txt.\n";
