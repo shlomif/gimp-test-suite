@@ -1,0 +1,6 @@
+Revision history for Perl extension Net::SeedServe.
+
+0.01  Fri Feb 18 01:19:25 2005
+	- original version; created by h2xs 1.23 with options
+		-X Net::SeedServe
+

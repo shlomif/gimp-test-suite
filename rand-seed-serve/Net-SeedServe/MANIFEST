@@ -1,0 +1,9 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/protocol.t
+lib/Net/SeedServe.pm
+lib/Net/SeedServe/Server.pm
+TEMP/meaningless.txt
+META.yml                                 Module meta-data (added by MakeMaker)
