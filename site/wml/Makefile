@@ -25,7 +25,7 @@ WML_FLAGS += --passoption=2,-X --passoption=3,-I../lib/ --passoption=7,"-S imgsi
 
 RSYNC = rsync --progress --verbose --rsh=ssh 
 
-LIBRARY_FILES = template.wml lib/books.wml
+LIBRARY_FILES = template.wml
 
 all: dest $(SUBDIRS_DEST) $(DESTS) $(RAW_FILES_DEST)
 
