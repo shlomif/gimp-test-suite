@@ -7,7 +7,7 @@ use warnings;
 use IO::Socket::INET;
 use IO::All;
 
-our $VERSION = '0.1.0_00';
+our $VERSION = '0.2.0';
 
 sub new
 {
@@ -118,26 +118,12 @@ __END__
 
 =head1 NAME
 
-Net::SeedServe - Perl extension for blah blah blah
-
-=head1 SYNOPSIS
-
-  use Net::SeedServe;
-  blah blah blah
+Net::SeedServe - Perl module for implementing a seed server (should not
+be used directly - use Net::SeedServe::Server instead).
 
 =head1 DESCRIPTION
 
-Stub documentation for Net::SeedServe, created by h2xs. It looks like the
-author of the extension was negligent enough to leave the stub
-unedited.
-
-Blah blah blah.
-
-=head2 EXPORT
-
-None by default.
-
-
+Consult the documentation of L<Net::SeedServe::Server>.
 
 =head1 AUTHOR
 
@@ -151,3 +137,4 @@ This library is free software, you can redistribute and/or modify and/or
 use it under the terms of the MIT X11 license.
 
 =cut
+

@@ -150,3 +150,26 @@ sub enqueue
 
 1;
 
+__END__
+
+=head1 NAME
+
+Net::SeedServe - Perl module for implementing a seed server.
+
+=head1 DESCRIPTION
+
+None yet. Consult the code, and the examples in the tests directory.
+
+=head1 AUTHOR
+
+Shlomi Fish, E<lt>shlomif@iglu.org.ilE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2005 by Shlomi Fish
+
+This library is free software, you can redistribute and/or modify and/or
+use it under the terms of the MIT X11 license.
+
+=cut
+
