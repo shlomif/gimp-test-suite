@@ -90,5 +90,40 @@ sub stop
     waitpid($pid, 0);
 }
 
+sub ok_transact
+{
+    my $self = shift;
+    my $msg = shift;
+    my $port = $self->{'port'};
+    my $conn = io("localhost:$port");
+    $conn->print("$msg\n");
+    my $response = $conn->getline();
+    if ($response eq "OK\n")
+    {
+        return 0;
+    }
+    else
+    {
+        die "Invalid response - $response.";
+    }
+}
+
+sub clear
+{
+    my $self = shift;
+    return $self->ok_transact("CLEAR");
+}
+
+sub enqueue
+{
+    my $self = shift;
+    my $seeds = shift;
+    if (grep { $_ !~ /^\d+$/ } @$seeds)
+    {
+        die "Invalid seed.";
+    }
+    return $self->ok_transact("ENQUEUE " . join("", map { "$_," } @$seeds));
+}
+
 1;
 

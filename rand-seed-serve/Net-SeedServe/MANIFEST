@@ -2,6 +2,7 @@ Changes
 Makefile.PL
 MANIFEST
 README
+t/api.t
 t/protocol.t
 lib/Net/SeedServe.pm
 lib/Net/SeedServe/Server.pm
