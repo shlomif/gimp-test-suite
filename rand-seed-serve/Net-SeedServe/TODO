@@ -1,0 +1,8 @@
+* Write the connect using existing service functionality.
+
+* Write the C function to connect to the server.
+    - Write tests using it.
+
+* Create a shared library in which the glib randomization function
+receive their seeds from the service.
+
