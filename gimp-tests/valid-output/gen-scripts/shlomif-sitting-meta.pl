@@ -2,7 +2,7 @@
 
 # This is a meta script that checks that the uncompressed contents of
 # a JPEG file are the same any-time it is loaded.
-#
+
 use strict;
 use warnings;
 
