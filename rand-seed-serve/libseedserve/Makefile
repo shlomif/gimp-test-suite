@@ -1,12 +1,14 @@
 NAME = seedserve
-LIBNAME = lib$(NAME).la
+LIBNAME = lib$(NAME).so
 EXENAME = $(NAME)-run
-EXE_DEPS = $(NAME).o main-run.o
-OBJECTS = $(EXE_DEPS)
+EXE_DEPS = $(LIBNAME) main-run.o
+OBJECTS = main-run.o $(NAME).o grand.o
 
-CFLAGS = -Wall -Werror-implicit-function-declaration -Wstrict-prototypes -Wpointer-arith -g
+GRAND_LIBNAME = libgrand_$(NAME).so
 
-TARGETS = $(EXENAME) $(LIBNAME)
+CFLAGS = -Wall -Werror-implicit-function-declaration -Wstrict-prototypes -Wpointer-arith -g `pkg-config glib-2.0 --cflags`
+
+TARGETS = $(EXENAME) $(LIBNAME) $(GRAND_LIBNAME) 
 
 all: $(TARGETS)
 
@@ -14,11 +16,14 @@ $(OBJECTS) :: %.o : %.c $(NAME).h
 	gcc -c $(CFLAGS) -o $@ $<
 
 $(EXENAME): $(EXE_DEPS)
-	gcc -o $@ $(EXE_DEPS)
+	gcc -L./.libs -o $@ main-run.o -l$(NAME)
 	
 $(LIBNAME): $(NAME).o
-	libtool --mode=link gcc $(CFLAGS) -o $@ -rpath /usr/lib -version-info 0:0:0 $<
-	
+	libtool --mode=link gcc -shared $(CFLAGS) -o $@ -version-info 0:0:0 $<
+
+$(GRAND_LIBNAME): grand.o $(LIBNAME) 
+	libtool --mode=link gcc -shared $(CFLAGS) -o $@ -version-info 0:0:0 $< -l$(NAME)
+
 TEST_VERBOSE = 0
 
 test: $(TARGETS)
