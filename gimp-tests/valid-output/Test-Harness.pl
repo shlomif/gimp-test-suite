@@ -25,6 +25,12 @@ sub find_grand_seedserve_lib
     die "Could not find libgrand_seedserve.so!";
 }
 
+sub should_skip
+{
+    my $fn = shift;
+    return (($fn =~ /~$/) || ($fn =~ /^\./) || ($fn =~ /^__SKIP-/));
+}
+
 my $seed_server_status_file = "temp/server-status.txt";
 # First of all - start the seed service.
 my $seed_server =
@@ -61,8 +67,10 @@ my (@failed, @passed);
 foreach my $file (io("./gen-scripts/")->all_files())
 {
     my $filename = $file->filename();
-    next if ($filename =~ /~$/);
-    next if ($filename =~ /^\./);
+    if (should_skip($filename))
+    {
+        next;
+    }
     my $test_name = $filename;
     $test_name =~ s/\.pl$//;
     print STDERR "Performing Test \"$test_name\"\n";
