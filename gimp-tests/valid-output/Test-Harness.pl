@@ -7,6 +7,7 @@ use Net::SeedServe::Server;
 use String::ShellQuote;
 use Time::HiRes qw(usleep);
 use IO::All;
+use Getopt::Long;
 
 use constant GIMP_VER => "2.3";
 
@@ -29,6 +30,27 @@ sub should_skip
 {
     my $fn = shift;
     return (($fn =~ /~$/) || ($fn =~ /^\./) || ($fn =~ /^__SKIP-/));
+}
+
+my $exit_type = "newline";
+my $exit_string = "EXIT";
+# Process the command line arguments
+my $cmd_line_ok = 
+    GetOptions(
+        "exit=s" => \$exit_type,
+        "exit-string=s" => \$exit_string,
+    );
+
+if (!$cmd_line_ok)
+{
+    die "Incorrect command line options passed.";
+}
+
+if (!(($exit_type eq "newline") ||
+      ($exit_type eq "immediate") ||
+      ($exit_type eq "string")))
+{
+    die "Unknown --exit parameter \"$exit_type\".";
 }
 
 my $seed_server_status_file = "temp/server-status.txt";
@@ -85,8 +107,23 @@ foreach my $file (io("./gen-scripts/")->all_files())
     }
 }
 
-print STDERR "Type <Return> to exit.\n";
-my $line = <STDIN>;
+if ($exit_type eq "newline")
+{
+    print STDERR "Type <Return> to exit.\n";
+    my $line = <STDIN>;
+}
+elsif ($exit_type eq "string")
+{
+    print STDERR "Type \"$exit_string\" to exit:\n";
+    while (my $line = <STDIN>)
+    {
+        chomp($line);
+        if ($line eq $exit_string)
+        {
+            last;
+        }
+    }
+}
 
 io("failed-report.txt")->print(map { "$_\n" } 
     ("The following tests failed:", "", @failed));
