@@ -25,6 +25,7 @@ my $img = gimp_file_load(1, $input_fn, $input_fn);
 plug_in_gauss(1, $img, get_drawable($img), 5.0, 10.0, 1);
 gimp_image_flatten($img);
 gimp_file_save(1, $img, get_drawable($img), $output_fn, $output_fn);
+gimp_image_delete($img);
 
 my $do_what = shift(@ARGV);
 my $signature = +{};
