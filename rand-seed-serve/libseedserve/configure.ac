@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_INIT(seedserve.c)
 
-AM_INIT_AUTOMAKE(libseedserve, 0.1.3)
+AM_INIT_AUTOMAKE(libseedserve, 0.1.4)
 
 AM_PROG_LIBTOOL
 
@@ -20,4 +20,5 @@ AC_HEADER_TIME
 
 AM_PATH_GLIB_2_0(2.0.0)
 
-AC_OUTPUT([Makefile])
+AC_OUTPUT([Makefile libseedserve.spec])
+

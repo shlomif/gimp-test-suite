@@ -1,0 +1,54 @@
+%define myname libseedserve
+%define major 0
+%define finalname %{myname}%{major}
+Name: %{finalname}
+Version: @VERSION@
+Release: 1
+Copyright: MIT X11
+Source: http://gimp-test.berlios.de/libseedserve/libseedserve-%{version}.tar.gz
+Buildroot: %{_tmppath}/libseedserve-root
+URL: http://gimp-test.berlios.de/libseedserve/
+Summary: The Freecell Solver Executable
+Group: Development/Libraries
+BuildRequires: libglib2.0-devel
+
+%define LIBVER 0.0.0
+
+%description
+This is a library to interface with the Net-SeedServe Perl module from within
+ANSI C Programs.
+
+
+%prep 
+%setup -n %{myname}-%{version} 
+
+%build
+
+./configure --prefix=/usr 
+make RPM_OPT_FLAGS="$RPM_OPT_FLAGS" 
+
+%install
+rm -rf $RPM_BUILD_ROOT
+make install prefix=$RPM_BUILD_ROOT/usr
+
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
+
+%files
+%defattr(-,root,root)
+/usr/lib/libseedserve.so*
+/usr/lib/libseedserve.la
+/usr/lib/libseedserve.a
+/usr/lib/libgrand_seedserve.so*
+/usr/lib/libgrand_seedserve.la
+/usr/lib/libgrand_seedserve.a
+/usr/include/seedserve.h
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%changelog
+* Sun Feb 20 2005 Shlomi Fish <shlomif@iglu.org.il> 0.1.4-1
+- Ported the spec from the Freecell Solver spec.
+
