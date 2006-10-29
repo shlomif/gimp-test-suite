@@ -7,16 +7,32 @@ use Net::SeedServe;
 use IO::All;
 use Time::HiRes qw(usleep);
 
+=head1 NAME
+
+Net::SeedServe - Perl module for implementing a seed server.
+
+=head1 DESCRIPTION
+
+None yet. Consult the code, and the examples in the tests directory.
+
+=head1 METHODS
+
+=head2 $obj = Net::SeedServe::Server->new(status_file => $status_filename);
+
+Initialises a new object with the status filename.
+
+=cut
+
 sub new
 {
     my $class = shift;
     my $self = {};
     bless $self, $class;
-    $self->initialize(@_);
+    $self->_init(@_);
     return $self;
 }
 
-sub initialize
+sub _init
 {
     my $self = shift;
     my %args = (@_);
@@ -25,6 +41,13 @@ sub initialize
 
     return 0;
 }
+
+=head2 $server->start()
+
+Starts the server on a port starting from port 3,000. Returns a hash ref 
+containing the port.
+
+=cut
 
 sub start
 {
@@ -80,6 +103,12 @@ sub start
     }
 }
 
+=head2 $server->connect(status_file => $status_filename)
+
+Connects to an existing Server whose status file is $status_filename.
+
+=cut
+
 sub connect
 {
     my $self = shift;
@@ -103,6 +132,12 @@ sub connect
     return { 'port' => $port, };
 }
 
+=head2 $server->stop()
+
+Stops the service by killing the listening process.
+
+=cut
+
 sub stop
 {
     my $self = shift;
@@ -113,7 +148,7 @@ sub stop
     waitpid($pid, 0);
 }
 
-sub ok_transact
+sub _ok_transact
 {
     my $self = shift;
     my $msg = shift;
@@ -131,11 +166,23 @@ sub ok_transact
     }
 }
 
+=head2 $server->clear();
+
+Sends a clear transaction that clears the seeds of the seed server.
+
+=cut
+
 sub clear
 {
     my $self = shift;
-    return $self->ok_transact("CLEAR");
+    return $self->_ok_transact("CLEAR");
 }
+
+=head2 $server->enqueue(\@seeds);
+
+Enqueues several seeds in the server to be served next.
+
+=cut
 
 sub enqueue
 {
@@ -145,20 +192,12 @@ sub enqueue
     {
         die "Invalid seed.";
     }
-    return $self->ok_transact("ENQUEUE " . join("", map { "$_," } @$seeds));
+    return $self->_ok_transact("ENQUEUE " . join("", map { "$_," } @$seeds));
 }
 
 1;
 
 __END__
-
-=head1 NAME
-
-Net::SeedServe - Perl module for implementing a seed server.
-
-=head1 DESCRIPTION
-
-None yet. Consult the code, and the examples in the tests directory.
 
 =head1 AUTHOR
 

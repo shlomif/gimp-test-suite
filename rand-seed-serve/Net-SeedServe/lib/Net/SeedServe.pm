@@ -14,11 +14,11 @@ sub new
     my $class = shift;
     my $self = +{};
     bless $self, $class;
-    $self->initialize(@_);
+    $self->_init(@_);
     return $self;
 }
 
-sub initialize
+sub _init
 {
     my $self = shift;
 
@@ -35,7 +35,7 @@ sub initialize
     return 0;
 }
 
-sub set_status_file
+sub _update_status_file
 {
     my $self = shift;
     my $string = shift;
@@ -58,11 +58,11 @@ sub loop
         );
     if (!defined($serving_socket))
     {
-        $self->set_status_file("Status:Error");
+        $self->_update_status_file("Status:Error");
         die $@;
     }
 
-    $self->set_status_file(
+    $self->_update_status_file(
         "Status:Success\tPort:" . $self->{'port'} . "\tPID:$$"
         );
 
@@ -124,6 +124,17 @@ be used directly - use Net::SeedServe::Server instead).
 =head1 DESCRIPTION
 
 Consult the documentation of L<Net::SeedServe::Server>.
+
+=head1 METHODS
+
+=head2 $server = Net::SeedServe->new(port => $port, status_file => $status_filename)
+
+Constructs a new seed server object on a certain port with a certain status 
+file.
+
+=head2 $server->loop();
+
+Starts a loop.
 
 =head1 AUTHOR
 
