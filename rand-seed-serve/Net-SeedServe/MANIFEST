@@ -1,12 +1,13 @@
+Build.PL
 Changes
 COPYING
+lib/Net/SeedServe.pm
+lib/Net/SeedServe/Server.pm
 Makefile.PL
 MANIFEST
+META.yml                                 Module meta-data (added by MakeMaker)
 README
 t/api.t
 t/connect.t
-t/protocol.t
-lib/Net/SeedServe.pm
-lib/Net/SeedServe/Server.pm
 TEMP/meaningless.txt
-META.yml                                 Module meta-data (added by MakeMaker)
+t/protocol.t

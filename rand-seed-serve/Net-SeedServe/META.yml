@@ -1,13 +1,25 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Net-SeedServe
-version:      0.2.0
-version_from: lib/Net/SeedServe.pm
-installdirs:  site
+---
+name: Net-SeedServe
+version: 0.2.0
+author:
+  - 'Shlomi Fish, E<lt>shlomif@iglu.org.ilE<gt>'
+abstract: |-
+  Perl module for implementing a seed server (should not
+  be used directly - use Net::SeedServe::Server instead).
+license: bsd
+resources:
+  license: http://www.opensource.org/licenses/bsd-license.php
 requires:
-    IO::All:                       0.33
-    Test::More:                    0
-    Time::HiRes:                   1.59
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.17
+  IO::All: 0.33
+  Test::More: 0
+  Time::HiRes: 1.59
+provides:
+  Net::SeedServe:
+    file: lib/Net/SeedServe.pm
+    version: 0.2.0
+  Net::SeedServe::Server:
+    file: lib/Net/SeedServe/Server.pm
+generated_by: Module::Build version 0.2805
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
