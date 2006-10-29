@@ -1,6 +1,7 @@
 Build.PL
 Changes
 COPYING
+examples/Gimp-Test-Harness.pl
 lib/Net/SeedServe.pm
 lib/Net/SeedServe/Server.pm
 Makefile.PL
