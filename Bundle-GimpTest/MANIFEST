@@ -1,0 +1,6 @@
+MANIFEST
+Makefile.PL
+README
+Changes
+GimpTest.pm
+META.yml                                 Module meta-data (added by MakeMaker)

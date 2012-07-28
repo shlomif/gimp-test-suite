@@ -1,6 +1,6 @@
 ---
 name: Net-SeedServe
-version: 0.2.0
+version: 0.2.1
 author:
   - 'Shlomi Fish, E<lt>shlomif@iglu.org.ilE<gt>'
 abstract: |-
@@ -16,7 +16,7 @@ requires:
 provides:
   Net::SeedServe:
     file: lib/Net/SeedServe.pm
-    version: 0.2.0
+    version: 0.2.1
   Net::SeedServe::Server:
     file: lib/Net/SeedServe/Server.pm
 generated_by: Module::Build version 0.2805

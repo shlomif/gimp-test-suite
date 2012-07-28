@@ -9,7 +9,7 @@ use Time::HiRes qw(usleep);
 use IO::All;
 use Getopt::Long;
 
-use constant GIMP_VER => "2.3";
+use constant GIMP_VER => "2.6";
 
 sub find_grand_seedserve_lib
 {
