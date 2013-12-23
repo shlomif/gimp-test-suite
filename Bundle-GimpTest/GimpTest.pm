@@ -1,6 +1,11 @@
-package Bundle::QuadPres
+package Bundle::GimpTest;
 
-$VERSION = '0.2.0';
+use strict;
+use warnings;
+
+use vars qw($VERSION);
+
+$VERSION = '0.2.1';
 
 1;
 
@@ -24,7 +29,7 @@ Use of CPAN.pm in interactive mode:
   cpan> quit
 
 Just like the manual installation of perl modules, the user may
-need root access during this process to insure write permission 
+need root access during this process to insure write permission
 is allowed within the intstallation directory.
 
 
