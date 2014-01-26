@@ -1,8 +1,8 @@
 Changes
-GimpTest.pm
 MANIFEST
 META.yml                                 Module meta-data (added by MakeMaker)
 Makefile.PL
 README
+lib/Bundle/GimpTest.pm
 t/00-load.t
 t/pod.t
