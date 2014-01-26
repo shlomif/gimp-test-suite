@@ -12,8 +12,16 @@ my $build = Module::Build->new(
     VERSION_FROM => 'lib/Bundle/GimpTest.pm',
     requires =>
     {
+        'Digest::MD5' => 0,
+        'Getopt::Long' => 0,
+        'IO::All' => 0,
+        'Net::SeedServe' => 0,
+        'String::ShellQuote' => 0,
+        'Time::HiRes' => 0,
+        'YAML' => 0,
         'perl' => '5.008',
         'strict' => 0,
+        'vars' => 0,
         'warnings' => 0,
     },
     license => "mit",
