@@ -3,6 +3,8 @@ package Bundle::GimpTest;
 use strict;
 use warnings;
 
+use 5.008;
+
 use vars qw($VERSION);
 
 $VERSION = '0.2.1';
