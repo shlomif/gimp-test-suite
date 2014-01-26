@@ -32,10 +32,10 @@ rand-seed-serve/libseedserve/seedserve-run
 rand-seed-serve/libseedserve/missing
 site/wml/defs.mak
 site/wml/dest
-Bundle-GimpTest/Makefile
-Bundle-GimpTest/pm_to_blib
-Bundle-GimpTest/MYMETA.json
-Bundle-GimpTest/blib
-Bundle-GimpTest/META.yml
+Bundle-GimpTest/Build
 Bundle-GimpTest/META.json
+Bundle-GimpTest/META.yml
+Bundle-GimpTest/MYMETA.json
 Bundle-GimpTest/MYMETA.yml
+Bundle-GimpTest/_build
+Bundle-GimpTest/blib
