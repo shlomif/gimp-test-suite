@@ -1,7 +1,11 @@
-v0.2.1 (2013-12-23)
+v0.2.2
+    - Add a LICENSE section - Kwalitee.
+
+v0.2.1  2013-12-23
     - Fix compilation problems.
     - add t/00-load.t .
     - add t/pod.t .
 
-v0.2.0 (2005-Feb-21) - Bundle Created
+v0.2.0  2005-02-21
+    - First release.
 
