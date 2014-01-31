@@ -9,6 +9,7 @@ Makefile.PL
 README
 TEMP/meaningless.txt
 examples/Gimp-Test-Harness.pl
+inc/Test/Run/Builder.pm
 lib/Net/SeedServe.pm
 lib/Net/SeedServe/Server.pm
 t/api.t
