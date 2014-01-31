@@ -9,7 +9,7 @@ use Time::HiRes qw(usleep);
 
 =head1 NAME
 
-Net::SeedServe - Perl module for implementing a seed server.
+Net::SeedServe::Server - Perl module for implementing a seed server.
 
 =head1 DESCRIPTION
 

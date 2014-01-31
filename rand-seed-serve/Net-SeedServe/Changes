@@ -1,5 +1,10 @@
 Revision history for Perl extension Net::SeedServe.
 
+0.2.4   2014-01-31
+    - The abstract should be on one line.
+        - https://rt.cpan.org/Ticket/Display.html?id=92623
+        - Thanks to NEILB for the report.
+
 0.2.3   2014-01-31
     - Add the Mercurial repository to the Build.PL (and META.yml).
 

@@ -118,10 +118,11 @@ __END__
 
 =head1 NAME
 
-Net::SeedServe - Perl module for implementing a seed server (should not
-be used directly - use Net::SeedServe::Server instead).
+Net::SeedServe - Perl module for implementing a seed server.
 
 =head1 DESCRIPTION
+
+Do not use this module directly - use Net::SeedServe::Server instead).
 
 Consult the documentation of L<Net::SeedServe::Server>.
 
@@ -138,7 +139,7 @@ Starts a loop.
 
 =head1 AUTHOR
 
-Shlomi Fish, E<lt>shlomif@iglu.org.ilE<gt>
+Shlomi Fish, L<http://www.shlomifish.org/>
 
 =head1 COPYRIGHT AND LICENSE
 
