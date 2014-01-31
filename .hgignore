@@ -1,6 +1,7 @@
 syntax:glob
 rand-seed-serve/Net-SeedServe/Build
 rand-seed-serve/Net-SeedServe/META.json
+rand-seed-serve/Net-SeedServe/META.yml
 rand-seed-serve/Net-SeedServe/MYMETA.json
 rand-seed-serve/Net-SeedServe/MYMETA.yml
 rand-seed-serve/Net-SeedServe/Makefile
