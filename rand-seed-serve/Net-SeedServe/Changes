@@ -2,6 +2,7 @@ Revision history for Perl extension Net::SeedServe.
 
 0.2.2  Fri 31 Jan 14:26:03 IST 2014
     - Add LICENSE file (CPANTS).
+    - Add minimum version of perl to Build.PL.
 
 0.2.1  Sun Oct 29 21:45:16 IST 2006
     - Added the Build.PL file (to have license meta-data, etc.) The Makefile.PL
