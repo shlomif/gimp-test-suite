@@ -1,5 +1,8 @@
 Revision history for Perl extension Net::SeedServe.
 
+0.2.3   2014-01-31
+    - Add the Mercurial repository to the Build.PL (and META.yml).
+
 0.2.2   2014-01-31
     - Add LICENSE file (CPANTS).
     - Add minimum version of perl to Build.PL.

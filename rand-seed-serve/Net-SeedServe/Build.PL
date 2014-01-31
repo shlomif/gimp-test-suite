@@ -18,6 +18,13 @@ my $builder = Test::Run::Builder->new(
     },
     'license' => 'mit',
     create_makefile_pl => 'traditional',
+    meta_merge =>
+    {
+        resources =>
+        {
+            repository => "https://bitbucket.org/shlomif/gimp-test-suite",
+        },
+    },
 );
 $builder->create_build_script;
 
