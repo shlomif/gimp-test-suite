@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 
 use strict;
 use warnings;
@@ -22,7 +22,7 @@ my $real_server =
 
 $real_server->start();
 
-my $server = 
+my $server =
     Net::SeedServe::Server->new(
         'status_file' => $status_file,
     );
@@ -31,7 +31,7 @@ my $ret = $server->connect();
 
 my $port = $ret->{'port'};
 
-# The eval { } is to trap exceptions, so we can safely stop the server at 
+# The eval { } is to trap exceptions, so we can safely stop the server at
 # cleanup.
 eval {
     # Phase 1 : Test regular initiatory seeds, with a possible clear.

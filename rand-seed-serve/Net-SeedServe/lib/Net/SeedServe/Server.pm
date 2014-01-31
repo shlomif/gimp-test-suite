@@ -44,7 +44,7 @@ sub _init
 
 =head2 $server->start()
 
-Starts the server on a port starting from port 3,000. Returns a hash ref 
+Starts the server on a port starting from port 3,000. Returns a hash ref
 containing the port.
 
 =cut
@@ -65,7 +65,7 @@ sub start
         if (! $fork_pid)
         {
             # The child will start the service.
-            my $server = 
+            my $server =
                 Net::SeedServe->new(
                     'status_file' => $status_file,
                     'port' => $port,
@@ -124,9 +124,9 @@ sub connect
 
     my $port = $1;
     $self->{'server_pid'} = $2;
-    # TODO ? 
+    # TODO ?
     # Add sanity checks.
-    
+
     $self->{'port'} = $port;
 
     return { 'port' => $port, };

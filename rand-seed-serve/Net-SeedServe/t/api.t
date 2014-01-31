@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 
 use strict;
 use warnings;
@@ -22,7 +22,7 @@ my $server =
 my $ret = $server->start();
 my $port = $ret->{'port'};
 
-# The eval { } is to trap exceptions, so we can safely stop the server at 
+# The eval { } is to trap exceptions, so we can safely stop the server at
 # cleanup.
 eval {
     # Phase 1 : Test regular initiatory seeds, with a possible clear.

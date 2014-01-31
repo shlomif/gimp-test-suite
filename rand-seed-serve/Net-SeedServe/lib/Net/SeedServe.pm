@@ -26,7 +26,7 @@ sub _init
 
     my $port = $args{'port'} or
         die "Port not specified!";
-    
+
     $self->{'port'} = $port;
 
     $self->{'status_file'} = $args{'status_file'} or
@@ -39,7 +39,7 @@ sub _update_status_file
 {
     my $self = shift;
     my $string = shift;
-    
+
     io()->file($self->{'status_file'})->print("$string\n");
 }
 
@@ -49,7 +49,7 @@ sub loop
 
     my $serving_socket;
 
-    $serving_socket = 
+    $serving_socket =
         IO::Socket::INET->new(
             Listen    => 5,
             LocalAddr => 'localhost',
@@ -129,7 +129,7 @@ Consult the documentation of L<Net::SeedServe::Server>.
 
 =head2 $server = Net::SeedServe->new(port => $port, status_file => $status_filename)
 
-Constructs a new seed server object on a certain port with a certain status 
+Constructs a new seed server object on a certain port with a certain status
 file.
 
 =head2 $server->loop();

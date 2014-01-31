@@ -1,10 +1,10 @@
 Revision history for Perl extension Net::SeedServe.
 
-0.2.2  Fri 31 Jan 14:26:03 IST 2014
+0.2.2   2014-01-31
     - Add LICENSE file (CPANTS).
     - Add minimum version of perl to Build.PL.
 
-0.2.1  Sun Oct 29 21:45:16 IST 2006
+0.2.1   2006-10-29
     - Added the Build.PL file (to have license meta-data, etc.) The Makefile.PL
     is now auto-generated from it.
     - Added the pod.t and pod-coverage.t test files and made sure
@@ -13,6 +13,6 @@ Revision history for Perl extension Net::SeedServe.
         internal (start with underscore).
     - Added the Gimp-Test-Harness.pl example in the examples/ directory.
 
-0.2.0  Mon Feb 21 22:19:08 2005
+0.2.0   2005-02-21
     - First released version.
 

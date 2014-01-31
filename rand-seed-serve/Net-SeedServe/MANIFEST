@@ -3,6 +3,7 @@ COPYING
 Changes
 LICENSE
 MANIFEST
+META.json
 META.yml                                 Module meta-data (added by MakeMaker)
 Makefile.PL
 README
@@ -12,7 +13,8 @@ lib/Net/SeedServe.pm
 lib/Net/SeedServe/Server.pm
 t/api.t
 t/connect.t
+t/cpan-changes.t
 t/pod-coverage.t
 t/pod.t
 t/protocol.t
-META.json
+t/style-trailing-space.t
