@@ -1,25 +1,27 @@
 ---
-name: Net-SeedServe
-version: 0.2.1
+abstract: 'Perl module for implementing a seed server (should not'
 author:
   - 'Shlomi Fish, E<lt>shlomif@iglu.org.ilE<gt>'
-abstract: |-
-  Perl module for implementing a seed server (should not
-  be used directly - use Net::SeedServe::Server instead).
+build_requires: {}
+configure_requires:
+  Module::Build: 0.40
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4007, CPAN::Meta::Converter version 2.132830'
 license: bsd
-resources:
-  license: http://www.opensource.org/licenses/bsd-license.php
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Net-SeedServe
+provides:
+  Net::SeedServe:
+    file: lib/Net/SeedServe.pm
+    version: v0.2.1
+  Net::SeedServe::Server:
+    file: lib/Net/SeedServe/Server.pm
 requires:
   IO::All: 0.33
   Test::More: 0
   Time::HiRes: 1.59
-provides:
-  Net::SeedServe:
-    file: lib/Net/SeedServe.pm
-    version: 0.2.1
-  Net::SeedServe::Server:
-    file: lib/Net/SeedServe/Server.pm
-generated_by: Module::Build version 0.2805
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+resources:
+  license: http://www.opensource.org/licenses/bsd-license.php
+version: v0.2.1

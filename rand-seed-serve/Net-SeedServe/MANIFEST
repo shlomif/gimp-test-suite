@@ -1,16 +1,18 @@
 Build.PL
-Changes
 COPYING
+Changes
+LICENSE
+MANIFEST
+META.yml                                 Module meta-data (added by MakeMaker)
+Makefile.PL
+README
+TEMP/meaningless.txt
 examples/Gimp-Test-Harness.pl
 lib/Net/SeedServe.pm
 lib/Net/SeedServe/Server.pm
-Makefile.PL
-MANIFEST
-META.yml                                 Module meta-data (added by MakeMaker)
-README
 t/api.t
 t/connect.t
-TEMP/meaningless.txt
 t/pod-coverage.t
 t/pod.t
 t/protocol.t
+META.json
