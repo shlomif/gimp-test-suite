@@ -1,10 +1,14 @@
 syntax:glob
-rand-seed-serve/Net-SeedServe/blib
-rand-seed-serve/Net-SeedServe/_build
 rand-seed-serve/Net-SeedServe/Build
+rand-seed-serve/Net-SeedServe/META.json
+rand-seed-serve/Net-SeedServe/MYMETA.json
+rand-seed-serve/Net-SeedServe/MYMETA.yml
 rand-seed-serve/Net-SeedServe/Makefile
-rand-seed-serve/Net-SeedServe/pm_to_blib
+rand-seed-serve/Net-SeedServe/Net-SeedServe-*
 rand-seed-serve/Net-SeedServe/TEMP/server-status.txt
+rand-seed-serve/Net-SeedServe/_build
+rand-seed-serve/Net-SeedServe/blib
+rand-seed-serve/Net-SeedServe/pm_to_blib
 rand-seed-serve/libseedserve/.deps
 rand-seed-serve/libseedserve/.libs
 rand-seed-serve/libseedserve/Makefile
