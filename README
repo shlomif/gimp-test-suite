@@ -1,0 +1,8 @@
+***NOTE*** / ***WARNING*** !!!:
+
+This code is primarily of historical interest and may probably not work
+for you. It is possible that GIMP’s Perl bindings, on which the test suite
+was based, are no longer working proprely, and this code has been
+under-maintained.
+
+Please don't contact us about problems getting it to run.
