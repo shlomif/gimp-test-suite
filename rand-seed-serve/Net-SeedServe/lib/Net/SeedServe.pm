@@ -122,7 +122,7 @@ Net::SeedServe - Perl module for implementing a seed server.
 
 =head1 DESCRIPTION
 
-Do not use this module directly - use Net::SeedServe::Server instead).
+Do not use this module directly - use Net::SeedServe::Server instead.
 
 Consult the documentation of L<Net::SeedServe::Server>.
 
