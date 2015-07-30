@@ -12,7 +12,7 @@ sub gen_image
     init_seeds([50000]);
     my $img = load_input_file("shlomif-sitting.jpg");
 
-    plug_in_gimpressionist(RUN_NONINTERACTIVE(), 
+    plug_in_gimpressionist(RUN_NONINTERACTIVE(),
         $img, get_layer($img), "Ballpark"
         );
 

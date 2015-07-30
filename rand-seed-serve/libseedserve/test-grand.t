@@ -25,12 +25,12 @@ $ENV{'SEEDSERVE_PORT'} = $port;
 
 $ENV{'LD_PRELOAD'} = getcwd()."/.libs/libgrand_seedserve.so";
 
-# The eval { } is to trap exceptions, so we can safely stop the server at 
+# The eval { } is to trap exceptions, so we can safely stop the server at
 # cleanup.
 eval {
     $server->clear();
     $server->enqueue([24]);
-    
+
     my $result = `./grand-test-experiment`;
     my $expected = io()->file("grand-test-output.good.txt")->slurp();
     # TEST

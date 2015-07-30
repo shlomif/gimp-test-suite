@@ -19,13 +19,13 @@ This is a library to interface with the Net-SeedServe Perl module from within
 ANSI C Programs.
 
 
-%prep 
-%setup -n %{myname}-%{version} 
+%prep
+%setup -n %{myname}-%{version}
 
 %build
 
-./configure --prefix=/usr 
-make RPM_OPT_FLAGS="$RPM_OPT_FLAGS" 
+./configure --prefix=/usr
+make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT

@@ -23,7 +23,7 @@ SUBDIRS_DEST = $(addprefix $(TARGET)/,$(SUBDIRS))
 
 WML_FLAGS += --passoption=2,-X --passoption=3,-I../lib/ --passoption=7,"-S imgsize" -DROOT~.
 
-RSYNC = rsync --progress --verbose --rsh=ssh 
+RSYNC = rsync --progress --verbose --rsh=ssh
 
 LIBRARY_FILES = template.wml
 
@@ -31,7 +31,7 @@ all: dest $(SUBDIRS_DEST) $(DESTS) $(RAW_FILES_DEST)
 
 dest:
 	if [ ! -e $@ ] ; then mkdir $@ ; fi
-	
+
 $(DESTS) :: $(TARGET)/% : src/%.wml $(LIBRARY_FILES)
 	(cd src && wml $(WML_FLAGS) -DFILENAME=$(patsubst src/%.wml,%,$<) $(patsubst src/%,%,$<)) > $@
 
@@ -52,6 +52,6 @@ upload: upload_berlios
 upload_berlios: all
 	(cd dest && $(RSYNC) -r * shlomif@shell.berlios.de:/home/groups/gimp-test/htdocs/)
 
-.PHONY: 
+.PHONY:
 
 

@@ -15,8 +15,8 @@ sub gen_image
 
     gimp_rect_select($img, 20, 30, 70, 50, CHANNEL_OP_REPLACE(), 0, 0);
 
-    gimp_drawable_transform_perspective (get_layer($img), 
-        10, 10, 100, 20, 
+    gimp_drawable_transform_perspective (get_layer($img),
+        10, 10, 100, 20,
         50, 80, 130, 60,
         TRANSFORM_FORWARD(),
         INTERPOLATION_CUBIC(),

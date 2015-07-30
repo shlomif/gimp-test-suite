@@ -30,7 +30,7 @@ sub get_seed
     return $text;
 }
 
-# The eval { } is to trap exceptions, so we can safely stop the server at 
+# The eval { } is to trap exceptions, so we can safely stop the server at
 # cleanup.
 eval {
     # Phase 1 : Test regular initiatory seeds, with a possible clear.

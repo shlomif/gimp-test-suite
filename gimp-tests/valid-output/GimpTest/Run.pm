@@ -20,7 +20,7 @@ my $mode = undef;
 my $test_name = undef;
 my %options = ();
 
-my $cmd_line_ok = 
+my $cmd_line_ok =
     GetOptions(
         "mode=s" => \$mode,
         "name=s" => \$test_name,

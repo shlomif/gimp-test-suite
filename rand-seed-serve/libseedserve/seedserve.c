@@ -50,8 +50,8 @@ int seedserve_get_seed(void)
     bcopy(host_info->h_addr,
 		&socket_address.sin_addr,
 		host_info->h_length);            /* computer address (4 bytes) */
-    
-	
+
+
     /* connect to the server - blocks until connection established       */
     if (connect(sd,(struct sockaddr *)&socket_address,sizeof(socket_address)) == -1)
     {
@@ -60,7 +60,7 @@ int seedserve_get_seed(void)
     }
 
     write(sd, fetch_cmd, strlen(fetch_cmd));
-    
+
     ret = 0;
     while (read(sd, &digit, sizeof(digit)) == 1)
     {
@@ -75,7 +75,7 @@ int seedserve_get_seed(void)
     }
 
     close(sd);
-    
+
     return ret;
 }
 

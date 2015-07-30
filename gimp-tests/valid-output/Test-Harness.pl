@@ -13,7 +13,7 @@ use constant GIMP_VER => "2.6";
 
 sub find_grand_seedserve_lib
 {
-    my @dirs = (qw(/usr/lib /usr/local/lib), 
+    my @dirs = (qw(/usr/lib /usr/local/lib),
         split(/:/, $ENV{'LD_LIBRARY_PATH'}));
     foreach my $d (@dirs)
     {
@@ -34,15 +34,15 @@ my $which_tests_re = "^.*\$";
 sub should_skip
 {
     my $fn = shift;
-    return 
-        (($fn =~ /~$/) || 
-        ($fn =~ /^\./) || 
-        ($fn =~ /^__SKIP-/) || 
+    return
+        (($fn =~ /~$/) ||
+        ($fn =~ /^\./) ||
+        ($fn =~ /^__SKIP-/) ||
         ($fn !~ /$which_tests_re/o));
 }
 
 # Process the command line arguments
-my $cmd_line_ok = 
+my $cmd_line_ok =
     GetOptions(
         "exit=s" => \$exit_type,
         "exit-string=s" => \$exit_string,
@@ -80,8 +80,8 @@ unlink($gimp_perl_server_socket_path);
 {
     local $ENV{'SEEDSERVE_PORT'} = $seed_server_port;
     local $ENV{'LD_PRELOAD'} = $grand_ss_path;
-    system("gimp-".GIMP_VER(). " " . 
-        shell_quote("--batch=(extension-perl-server RUN-INTERACTIVE 0 0)") . 
+    system("gimp-".GIMP_VER(). " " .
+        shell_quote("--batch=(extension-perl-server RUN-INTERACTIVE 0 0)") .
         " &"
         );
 }
@@ -139,7 +139,7 @@ elsif ($exit_type eq "string")
 
 if (! $skip_tests)
 {
-    io("failed-report.txt")->print(map { "$_\n" } 
+    io("failed-report.txt")->print(map { "$_\n" }
         ("The following tests failed:", "", @failed));
     print STDERR "Passed " . scalar(@passed) .
         "; Failed " . scalar(@failed) . "\n";

@@ -11,7 +11,7 @@ int main()
     {
         printf("%i\n", g_rand_int(gr));
     }
-    
+
     g_rand_free(gr);
 
     return 0;

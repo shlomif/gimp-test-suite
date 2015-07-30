@@ -10,7 +10,7 @@ SETTING UP
 http://search.cpan.org/dist/Bundle-GimpTest/
 
 Run:
-    
+
     perl -MCPANPLUS -e 'install Bundle::GimpTest'
 
 Or:
@@ -21,22 +21,22 @@ Or:
 
     http://gimp-test.berlios.de/libseedserve/
 
-You can compile it as an rpm by running rpm -tb on the tar.gz file. 
+You can compile it as an rpm by running rpm -tb on the tar.gz file.
 Alternatively, you can use ./configure; make; make install.
 
-(If you install it not under /usr/lib or /usr/local/lib, please set the 
+(If you install it not under /usr/lib or /usr/local/lib, please set the
 LD_LIBRARY_PATH environment variable to point to it, prior to running the
 tests.)
 
-4. Install gimp-2.3 from the CVS. (Make sure its in your PATH) - 
-    
+4. Install gimp-2.3 from the CVS. (Make sure its in your PATH) -
+
     http://developer.gimp.org/cvs.html
-    
+
 5. Install gimp-perl from the CVS.
 
     http://developer.gimp.org/cvs.html
 
-6. Checkout the test suite from its subversion repository by issuing 
+6. Checkout the test suite from its subversion repository by issuing
 the following command:
 
     svn co svn://svn.berlios.de/gimp-test/trunk/gimp-tests/valid-output/
@@ -51,7 +51,7 @@ cd to the tests directory. Run the command:
 This will start the seed server, and the GIMP and run all the tests. After
 it finishes, it waits until the key return is pressed, to allow you to
 run additional tests manually. Afterwards, it will report the number of
-passes and failures and write a list of the tests that failed to 
+passes and failures and write a list of the tests that failed to
 failed-report.txt.
 
 Then, it will kill the seed service, and quit from the GIMP.
@@ -59,7 +59,7 @@ Then, it will kill the seed service, and quit from the GIMP.
 Adding New Tests:
 -----------------
 
-The test files reside in the gen-scripts/ sub-directory. They have the 
+The test files reside in the gen-scripts/ sub-directory. They have the
 general structure of:
 
 <<<<<<<<<<<<
@@ -83,11 +83,11 @@ sub gen_image
 }
 >>>>>>>>>>>>
 
-Where in Generate $img you are supposed to generate an image starting from 
+Where in Generate $img you are supposed to generate an image starting from
 nothing. Note that if some of the plug-ins called make use of random numbers,
 you should call init_seeds([]), with initiatory seeds.
 
-To run a test (say called foo.pl) run run-script-pl with the path to the 
+To run a test (say called foo.pl) run run-script-pl with the path to the
 script and a mode GNU parameter:
 
     $ perl run-script-pl ./gen-scripts/foo.pl --mode=gen
@@ -100,7 +100,7 @@ There are currently three modes:
 and then deletes the image.
 
 3. --mode=check - this generates an image, calculates its signature, compares
-it to the existing one, croaks if there's a mismatch. If everything's OK it 
+it to the existing one, croaks if there's a mismatch. If everything's OK it
 returns a 0 status to the caller, and deletes the final image.
 
 Note that images starting with "__SKIP-" are ignored by the Test-Harness.pl

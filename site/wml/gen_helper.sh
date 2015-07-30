@@ -1,15 +1,15 @@
 #!/bin/bash
 list_wmls()
 {
-    find ./src/ -name '*.html.wml' | 
-        sed 's!^\./src/!!' | 
-        sed 's!\.html\.wml$!!' | 
+    find ./src/ -name '*.html.wml' |
+        sed 's!^\./src/!!' |
+        sed 's!\.html\.wml$!!' |
         sort
 }
 
 get_subdirs()
 {
-    grep '/' | 
+    grep '/' |
         sed 's!/[^/]*$!!' |
         sort |
         uniq |
@@ -23,17 +23,17 @@ add_extra()
 
 list_images()
 {
-    find ./src -type f -not -name '*.wml' -not -name '.*' | 
-    grep -v '/\.svn' | 
-    grep -v '~$' | 
+    find ./src -type f -not -name '*.wml' -not -name '.*' |
+    grep -v '/\.svn' |
+    grep -v '~$' |
     sed 's!^./src/!!'
 }
 
 (echo "PAGES = $(list_wmls | xargs)" ;
 echo
 echo "SUBDIRS = $(((list_wmls) ; (list_images))| get_subdirs | add_extra | xargs)"
-echo 
+echo
 echo "IMAGES = $(list_images | xargs)" ;
 echo ) > defs.mak
 
-    
+
