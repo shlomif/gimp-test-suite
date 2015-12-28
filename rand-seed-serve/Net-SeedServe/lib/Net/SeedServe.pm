@@ -7,7 +7,7 @@ use warnings;
 use IO::Socket::INET;
 use IO::All;
 
-our $VERSION = '0.2.4';
+our $VERSION = '0.2.5';
 
 sub new
 {
