@@ -1,5 +1,8 @@
 Revision history for Perl extension Net::SeedServe.
 
+0.2.5   2015-12-28
+    - Update away from old E-mail address.
+
 0.2.4   2014-01-31
     - The abstract should be on one line.
         - https://rt.cpan.org/Ticket/Display.html?id=92623
