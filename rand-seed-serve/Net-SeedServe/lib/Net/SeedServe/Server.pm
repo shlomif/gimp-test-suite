@@ -83,11 +83,17 @@ sub start
         else
         {
             # The parent will try to find the child's status
-            while (! -f $status_file)
+            my $text;
+
+            while (! ( defined($text) and $text =~ /\n\z/) )
             {
+                while (! -f $status_file)
+                {
+                    usleep(5000);
+                }
                 usleep(5000);
+                $text = io()->file($status_file)->getline();
             }
-            my $text = io()->file($status_file)->getline();
             if ($text eq "Status:Success\tPort:$port\tPID:$fork_pid\n")
             {
                 # The game is on - the service is running and everything's OK.

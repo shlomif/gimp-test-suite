@@ -1,5 +1,8 @@
 Revision history for Perl extension Net::SeedServe.
 
+0.2.6   2015-12-29
+    - Made reading the status file more robust.
+
 0.2.5   2015-12-28
     - Update away from old E-mail address.
 
