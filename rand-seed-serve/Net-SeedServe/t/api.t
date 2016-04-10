@@ -10,13 +10,16 @@ use Test::More tests => 20;
 use IO::All;
 # TEST
 BEGIN { use_ok('Net::SeedServe') };
+use lib './t/lib';
+use StatusFile;
 
 use Net::SeedServe::Server;
 
+my $st = StatusFile->new;
 # First of all - start the service.
 my $server =
     Net::SeedServe::Server->new(
-        'status_file' => "TEMP/server-status.txt",
+        'status_file' => $st->fn,
     );
 
 my $ret = $server->start();

@@ -11,9 +11,12 @@ use IO::All;
 # TEST
 BEGIN { use_ok('Net::SeedServe') };
 
+use lib './t/lib';
+use StatusFile;
 use Net::SeedServe::Server;
 
-my $status_file = "TEMP/server-status.txt";
+my $st = StatusFile->new;
+my $status_file = $st->fn;
 # First of all - start the service.
 my $real_server =
     Net::SeedServe::Server->new(

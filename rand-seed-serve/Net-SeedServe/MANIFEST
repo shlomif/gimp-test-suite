@@ -15,6 +15,7 @@ lib/Net/SeedServe/Server.pm
 t/api.t
 t/connect.t
 t/cpan-changes.t
+t/lib/StatusFile.pm
 t/pod-coverage.t
 t/pod.t
 t/protocol.t

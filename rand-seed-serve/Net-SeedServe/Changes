@@ -1,5 +1,10 @@
 Revision history for Perl extension Net::SeedServe.
 
+0.2.7   2016-04-11
+    - Fix tests' parallelisation by getting rid of a common status_file
+    pathname.
+        - see HARNESS_OPTIONS='j9' ./Build test
+
 0.2.6   2015-12-29
     - Made reading the status file more robust.
 
